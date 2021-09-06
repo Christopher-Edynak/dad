@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entry:</strong>
+  <%= @log.entry %>
+</p>
+
+<p>
+  <strong>Systolic:</strong>
+  <%= @log.systolic %>
+</p>
+
+<p>
+  <strong>Diastolic:</strong>
+  <%= @log.diastolic %>
+</p>
+
+<p>
+  <strong>Pulse:</strong>
+  <%= @log.pulse %>
+</p>
+
+<p>
+  <strong>Feelings:</strong>
+  <%= @log.feelings %>
+</p>
+
+<p>
+  <strong>Meds:</strong>
+  <%= @log.meds %>
+</p>
+
+<p>
+  <strong>Actions:</strong>
+  <%= @log.actions %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @log.notes %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

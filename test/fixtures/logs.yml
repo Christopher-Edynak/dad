@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry: MyString
+  systolic: 1
+  diastolic: 1
+  pulse: 1
+  feelings: MyString
+  meds: MyString
+  actions: MyString
+  notes: MyText
+
+two:
+  entry: MyString
+  systolic: 1
+  diastolic: 1
+  pulse: 1
+  feelings: MyString
+  meds: MyString
+  actions: MyString
+  notes: MyText
