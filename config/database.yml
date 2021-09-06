@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: papadoc_production
-  username: papadoc
-  password: <%= ENV['PAPADOC_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  #username: papadoc
+  #password: <%= ENV['PAPADOC_DATABASE_PASSWORD'] %>
