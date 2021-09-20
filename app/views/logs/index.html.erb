@@ -1,41 +1,39 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %>  
+  PapaDoc BP Log &ndash; <%= DateTime.now.to_s(:pretty_date) %>
+<% end %>
+<%= render "shared/hero" %>
 
-<h1>Logs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Entry</th>
-      <th>Systolic</th>
-      <th>Diastolic</th>
-      <th>Pulse</th>
-      <th>Feelings</th>
-      <th>Meds</th>
-      <th>Actions</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @logs.each do |log| %>
-      <tr>
-        <td><%= log.entry %></td>
-        <td><%= log.systolic %></td>
-        <td><%= log.diastolic %></td>
-        <td><%= log.pulse %></td>
-        <td><%= log.feelings %></td>
-        <td><%= log.meds %></td>
-        <td><%= log.actions %></td>
-        <td><%= log.notes %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="columns mt-6 is-centered">
+  <% @logs.each do |log| %>
+    <div class="column is-one-quarter">
+      <div class="card">
+        <header class="card-header has-text-weight-bold"><p class="card-header-title">
+          &ensp;&emsp;<%= log.entry %></p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p><span class="has-text-weight-bold">Time Stamp:</span>&nbsp;<%= log.created_at.to_s(:preferred_timedate) %></p>
+            <p><span class="has-text-weight-bold">Systolic:</span>&nbsp;<%= log.systolic %></p>
+            <p><span class="has-text-weight-bold">Diastolic:</span>&nbsp;<%= log.diastolic %></p>
+            <p><span class="has-text-weight-bold">Pulse:</span>&nbsp;<%= log.pulse %></p>
+            <p><span class="has-text-weight-bold">Feelings:</span>&nbsp;<%= log.feelings %></p>
+            <p><span class="has-text-weight-bold">Meds Deployed:</span>&nbsp;<%= log.meds %></p>
+            <p><span class="has-text-weight-bold">Actions:</span>&nbsp;<%= log.actions %></p>
+            <p><span class="has-text-weight-bold">Notes:</span>&nbsp;<%= log.notes %></p>
+            <p class="italic">Created <%= time_ago_in_words(log.created_at)  %>&nbsp;ago</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'View', log, class: "card-footer-item" %>
+          <%= link_to 'Edit', edit_log_path(log), class: "card-footer-item" %>
+          <%= link_to 'Delete', log, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-footer-item" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <br>
-
-<%= link_to 'New Log', new_log_path %>
+<div class="columns is-centered mt-6">
+  <%= link_to 'Register New Log', new_log_path, class: "button is-link" %>&emsp;
+  <%= link_to 'View All Logs', archives_all_path, class: "button is-warning" %>
+</div>

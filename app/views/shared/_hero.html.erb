@@ -1,0 +1,11 @@
+<div class="hero">
+  <div class="hero-body">
+    <h1 class="title">
+      <% if content_for(:title) %>
+          <%= yield :title %>
+      <% else %>
+          PapaDoc BP LOG
+      <% end %>
+    </h1>
+  </div>
+</div>

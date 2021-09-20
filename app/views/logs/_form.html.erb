@@ -1,57 +1,65 @@
 <%= form_with(model: log) do |form| %>
   <% if log.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(log.errors.count, "error") %> prohibited this log from being saved:</h2>
-
-      <ul>
-        <% log.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(log.errors.count, "error") %> prohibited this log from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% log.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :entry %>
-    <%= form.text_field :entry %>
+    <%= form.label :entry, class: "label" %>
+    <%= form.text_field :entry, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :systolic %>
-    <%= form.number_field :systolic %>
+    <%= form.label :time, class: "label" %>
+    <%= form.datetime_select :time, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :diastolic %>
-    <%= form.number_field :diastolic %>
+    <%= form.label :systolic, class: "label" %>
+    <%= form.number_field :systolic, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :pulse %>
-    <%= form.number_field :pulse %>
+    <%= form.label :diastolic, class: "label" %>
+    <%= form.number_field :diastolic, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :feelings %>
-    <%= form.text_field :feelings %>
+    <%= form.label :pulse, class: "label" %>
+    <%= form.number_field :pulse, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :meds %>
-    <%= form.text_field :meds %>
+    <%= form.label :feelings, class: "label" %>
+    <%= form.text_field :feelings, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :actions %>
-    <%= form.text_field :actions %>
+    <%= form.label :meds, class: "label" %>
+    <%= form.text_area :meds, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes %>
+    <%= form.label :actions, class: "label" %>
+    <%= form.text_area :actions, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes, class: "label" %>
+    <%= form.text_area :notes, class: "input" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-warning" %>
   </div>
 <% end %>

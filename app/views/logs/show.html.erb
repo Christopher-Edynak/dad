@@ -1,44 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %>
+  <%= @log.entry %> &ndash; <%= DateTime.now.to_s(:pretty_date) %>
+<% end %>
 
-<p>
-  <strong>Entry:</strong>
-  <%= @log.entry %>
-</p>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @log.entry %>
+      </p>
 
-<p>
-  <strong>Systolic:</strong>
-  <%= @log.systolic %>
-</p>
+      <div class="panel-block">
+        DateTime Stamp: <%= @log.created_at %>
+      </div>
+      <div class="panel-block">
+        Systolic: <%= @log.systolic %>
+      </div>
+      <div class="panel-block">
+        Diastolic: <%= @log.diastolic %>
+      </div>
+      <div class="panel-block">
+        Pulse: <%= @log.pulse %>
+      </div>
+      <div class="panel-block">
+        Feelings: <%= @log.feelings %>
+      </div>
+      <div class="panel-block">
+        Meds Deployed: <%= @log.meds %>
+      </div>
+      <div class="panel-block">
+        Actions Taken: <%= @log.actions %>
+      </div>
+      <div class="panel-block">
+        Additional Notes: <%= @log.notes %>
+      </div>
+    </nav>
 
-<p>
-  <strong>Diastolic:</strong>
-  <%= @log.diastolic %>
-</p>
-
-<p>
-  <strong>Pulse:</strong>
-  <%= @log.pulse %>
-</p>
-
-<p>
-  <strong>Feelings:</strong>
-  <%= @log.feelings %>
-</p>
-
-<p>
-  <strong>Meds:</strong>
-  <%= @log.meds %>
-</p>
-
-<p>
-  <strong>Actions:</strong>
-  <%= @log.actions %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @log.notes %>
-</p>
-
-<%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
+    <div class="columns is-mobile">
+      <div clas="column">
+        <%= link_to 'Edit', edit_log_path(@log), class: "button is-warning" %> 
+        <%= link_to 'Back', logs_path, class: "button is-link" %>
+        <%= link_to 'Delete', log_path(@log), method: :delete, data: { confirm: "Are you sure?" }, class: "button is-danger" %>
+      </div>
+      <div class="column"></div>
+    </div>
+  </div>
+</div>

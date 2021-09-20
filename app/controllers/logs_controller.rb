@@ -6,7 +6,7 @@ class LogsController < ApplicationController
 
   # GET /logs or /logs.json
   def index
-    @logs = Log.all
+    @logs = Log.where("created_at >= ?", Date.today)
   end
 
   # GET /logs/1 or /logs/1.json

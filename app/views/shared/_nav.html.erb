@@ -1,0 +1,28 @@
+<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "navbar-item" do %>
+        <span class="has-text-weight-bold is-size-4 ml-4"><i class="fa fa-medkit" aria-hidden="true"></i>PapaDoc BP</span>
+        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+    <% end %>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user %>
+            <%= link_to "Add New Log", new_log_path, class: "button is-warning" %>
+            <%= link_to "Logout", destroy_user_session_path, class: "button is-danger", method: :delete %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "button is-success"  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
